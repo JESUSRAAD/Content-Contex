@@ -1,20 +1,14 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const UserContext = createContext(null);
 
 export default function UserContextProvider({ children }) {
-  const user= {
-    pettFav: "perro",
-    foodFav: "taco",
-    drinkFav: "ron",
-    IsLegalAge: true,
-    IsDrunk: true,
-  }
+  const [user, setUser]= useState(null)
 
  
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{user,setUser}}>
       {children}
     </UserContext.Provider>
   );

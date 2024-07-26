@@ -4,6 +4,7 @@ import PContainer from './components/PContainer'
 import ContextProvider from './context/NumberContext'
  import UserContextProvider from './context/UserContext'
 import UserCard from './components/UserCard'
+import User from './components/User'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
  <InputAndButton/>
  <PContainer/>
  <UserCard/>
+ <User/>
       </div>
 
     </ContextProvider>
