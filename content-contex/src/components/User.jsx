@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
 const User = () => {
-  const {  setUser } = useContext(UserContext);
-
+  const { user, setUser,loading, setLoading} = useContext(UserContext);
+  
 const renderUser=()=>{
     setUser({
         pettFav: "perro",
@@ -12,13 +12,23 @@ const renderUser=()=>{
         IsLegalAge: true,
         IsDrunk: true,
       });
+      setLoading(false)
+     return user
 }
 
-  useEffect(() => {
-    renderUser()
-  }, []);
+useEffect(() => {
+  if (loading) {
+    renderUser();
+    setLoading(false);
+  }
+}, [loading]);
+console.log(user);
 
-  return <div>User</div>;
+  return <div>
+     {loading ? (
+    <p>Cargando...</p>
+  ) : (<p>user</p> )}
+  </div>;
 };
 
 export default User;
